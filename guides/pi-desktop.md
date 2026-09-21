@@ -80,7 +80,7 @@ PI masks header values in the editor and required-value fields. After saving, ho
 - Global: `~/.agents/servers/baizhi-agent-toolkit.json` by default.
 - Project: `<project-root>/.agents/servers/baizhi-agent-toolkit.json`.
 
-A custom `PI_DESKTOP_AGENTS_DIR` changes the global `.agents` root. Enablement and scope state are stored separately in PI's app-local capability state. Turning a server off does not remove its key.
+A custom `PI_DESKTOP_AGENTS_DIR` changes the global `.agents` root. Enablement (including per-project overrides) is stored in PI's app-local capability state; Global or Project ownership follows the configuration's location. Turning a server off does not remove its key.
 
 Treat the configuration and any backup as sensitive. Restrict access to them and keep them out of version control or shared project archives. Masked input does not mean the header is encrypted in the operating system's keychain. Other software with access to these files can read them.
 
