@@ -11,6 +11,8 @@ This personal repository supports the Baizhi Cloud integration effort. It is not
 | Moltis | [Managed credentials and remote MCP](guides/moltis.md) | Personal agent tools |
 | ZeroClaw | [Authenticated MCP with agent grants](guides/zeroclaw.md) | Explicitly scoped task-agent access |
 | PI-Desktop | [Optional catalog and manual connection](guides/pi-desktop.md) | Desktop agent tools through PI's existing MCP settings |
+| Agent TARS | [Typed remote MCP configuration](guides/agent-tars.md) | Research tools in the CLI/agent stack |
+| OpenHuman | [Workspace configuration and credentials](validation/openhuman/GUIDE.md) | Optional MCP research with explicit credential lifecycle |
 
 Each guide identifies the source commit used for validation. Read it against your installed version; these are not compatibility claims for every release. Configuration examples preserve existing servers and grants. A public guide, an upstream PR, an accepted integration and a production-tested deployment are separate states.
 
@@ -28,4 +30,4 @@ The runtime guides use loopback-only synthetic MCP servers and credentials. Thei
 
 To report a problem with these guides, use this repository's issue tracker with your client version and a redacted error. Account, service access and billing questions belong in the service's own support channels. Do not post private configuration files or credentials.
 
-The MIT license covers the original material in this repository. It does not relicense the referenced clients or the hosted service.
+The MIT license covers the original material in this repository except for [the OpenHuman guide and validation package](validation/openhuman/NOTICE.md), which use GPL-3.0-only and include their own license. These licenses do not relicense the referenced clients or the hosted service.

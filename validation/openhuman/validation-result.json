@@ -1,0 +1,32 @@
+{
+  "startedAt": "2026-09-21T10:04:22.462884+00:00",
+  "finishedAt": "2026-09-21T10:04:28.318227+00:00",
+  "base": "eb4fdc0f4f4a036d8ab7c12bd52f16128e4a6b5d",
+  "platform": "macOS-15.3-arm64-arm-64bit",
+  "rustc": "rustc 1.96.1 (31fca3adb 2026-06-26)",
+  "lockSHA256": "52124bc6f9bf6e1590173665a629cf20baee56766459973f8aeb55030456ccd1",
+  "lockSHA256After": "52124bc6f9bf6e1590173665a629cf20baee56766459973f8aeb55030456ccd1",
+  "harnessSHA256": "7cd6a3eb47203eb08dd844aa173a258efb46006623d0630f9e69df9ac4f99ca4",
+  "runnerSHA256": "db658c2bcd249de4dca2e9652a3fe5fca4748a86a024dcc26c6684023e169296",
+  "productionToolCalls": 0,
+  "modelCalls": 0,
+  "realCredentialsUsed": false,
+  "outcome": "passed",
+  "scope": "Native config RPC implementation + SQLite credential store + tinymcp HTTP + OpenHuman product tool factory + TinyAgents execute_tool_batch. Synthetic server and scheduled call; no desktop UI, model loop, orchestration handoff, hosted API, or production service.",
+  "testsPassed": 6,
+  "testsFailed": 0,
+  "testsIgnored": 0,
+  "allRecursiveSubmodulesAtRecordedGitlinks": true,
+  "rootAndAllSubmodulesCleanBeforeAndAfter": true,
+  "compileProfile": "--locked --offline -p openhuman-cli --no-default-features --features mcp --test baizhi_mcp_loopback --no-run",
+  "runtimeNetwork": "macOS sandbox-exec: deny all network except loopback",
+  "formatter": "rustfmt 1.98.1 (formatting only); Rust build/test toolchain 1.96.1",
+  "tests": [
+    "native authenticated dispatch and session cleanup",
+    "missing key refused",
+    "wrong key refused",
+    "literal environment placeholder refused",
+    "omitted/empty headers preserve key; rotation, header deletion, other server retention and uninstall",
+    "partial header update retains another header"
+  ]
+}
