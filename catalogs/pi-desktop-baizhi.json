@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-09-21",
+  "servers": [
+    {
+      "id": "baizhi-agent-toolkit",
+      "name": "Baizhi Cloud Agent Toolkit",
+      "description": "Hosted tools for web search, page scraping and structured extraction. Bring your own Baizhi Cloud API key; usage may incur charges.",
+      "author": "Baizhi Cloud; community catalog by ct-jaryn (affiliated)",
+      "homepage": "https://baizhi.cloud/landing/agent-toolkit",
+      "categories": [
+        "web",
+        "data"
+      ],
+      "verified": false,
+      "transport": "http",
+      "url": "https://agent-toolkit.app.baizhi.cloud/mcp",
+      "headers": {
+        "Authorization": "Bearer ${BAIZHI_API_KEY}"
+      },
+      "requiredEnv": [
+        {
+          "name": "BAIZHI_API_KEY",
+          "description": "Your own Baizhi Cloud API key, without the Bearer prefix. Required; do not share it.",
+          "optional": false
+        }
+      ],
+      "prerequisites": [
+        "A Baizhi Cloud account and API key with access to the hosted tools.",
+        "Review the service's current pricing and data terms before enabling tools."
+      ],
+      "notes": "Commercial hosted service. This community catalog does not include the hosted service's backend source. Tool arguments are sent to Baizhi Cloud; returned results may enter your model context. Tool availability depends on your account and the live service. This catalog is maintained by an affiliated contributor and is not an official PI built-in entry or endorsement. It contains no API key. PI saves resolved MCP headers in its local server configuration; treat that file as sensitive."
+    }
+  ]
+}

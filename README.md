@@ -10,6 +10,7 @@ This personal repository supports the Baizhi Cloud integration effort. It is not
 | CowAgent | [Workspace MCP connection](guides/cowagent.md) | Personal assistant and multi-channel tasks |
 | Moltis | [Managed credentials and remote MCP](guides/moltis.md) | Personal agent tools |
 | ZeroClaw | [Authenticated MCP with agent grants](guides/zeroclaw.md) | Explicitly scoped task-agent access |
+| PI-Desktop | [Optional catalog and manual connection](guides/pi-desktop.md) | Desktop agent tools through PI's existing MCP settings |
 
 Each guide identifies the source commit used for validation. Read it against your installed version; these are not compatibility claims for every release. Configuration examples preserve existing servers and grants. A public guide, an upstream PR, an accepted integration and a production-tested deployment are separate states.
 
@@ -23,7 +24,7 @@ Tool arguments leave the client for the service, and returned data may enter the
 
 ## Validation
 
-Validation uses loopback-only synthetic MCP servers and credentials. The real host components perform configuration loading, discovery and tool execution; model decisions, where needed, are simulated. **No production MCP request or paid model call was made.** See [the validation matrix](validation/README.md) for exact coverage, versions and limits.
+The runtime guides use loopback-only synthetic MCP servers and credentials. Their real host components perform configuration loading, discovery and tool execution; model decisions, where needed, are simulated. PI-Desktop has a narrower catalog/configuration validation: native parsing, catalog aggregation with simulated network responses, and real host persistence, without MCP tool execution. **No production MCP request or paid model call was made.** See [the validation matrix](validation/README.md) for exact coverage, versions and limits.
 
 To report a problem with these guides, use this repository's issue tracker with your client version and a redacted error. Account, service access and billing questions belong in the service's own support channels. Do not post private configuration files or credentials.
 

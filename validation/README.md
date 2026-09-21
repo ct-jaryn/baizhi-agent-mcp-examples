@@ -1,6 +1,6 @@
 # Validation matrix
 
-Recorded on 2026-09-21. These are **32 focused checks**, not 32 products, a full application certification, or a live Baizhi acceptance run. Original test code is included to make the boundary reviewable.
+Recorded on 2026-09-21. The four runtime guides have **32 focused checks**. PI-Desktop adds **nine catalog/configuration checks repeated against two source revisions**. These counts do not represent products, a full application certification, or a live Baizhi acceptance run. Original test code is included to make the boundary reviewable.
 
 | Host | Fixed upstream source | Passing checks | Reproduction |
 | --- | --- | ---: | --- |
@@ -8,8 +8,9 @@ Recorded on 2026-09-21. These are **32 focused checks**, not 32 products, a full
 | CowAgent | `e2a97497abbda2abf023cd5fec99b4613e94e5af` | 10 native loading/dispatch/loopback checks | [Python 3.12.14, fixture MCP 1.26.0](cowagent/README.md) |
 | Moltis | `9d3238c322708e9d57fe235ce1c2b43ccc33af62` | 6 native MCP/registry/bridge + 1 native configuration check | [Rust 1.98.1 and upstream lock](moltis/README.md) |
 | ZeroClaw | `fba46e349b6bd084d43b721c7645525d2f5c597d` | 6 native config/grant/secret-store/registry/HTTP checks | [Rust 1.98.1 and upstream lock](zeroclaw/README.md) |
+| PI-Desktop | main `b71fcf05a67dce5bb91c5fbd1f96f3a15fc8fe9a`; v0.15.1 `515620a4b7f6ce90df256e28d10d95957df16792` | 9 per revision: native catalog/configuration and host persistence; no MCP execution | [Node 24.21.0, TypeScript 5.9.3 and upstream locks](pi-desktop/README.md) |
 
-Real host components execute configuration, transport and dispatch. The remote MCP servers, credentials, tool schemas and returned data are synthetic. Where model decisions are needed, they are simulated; no paid model request is made. Runners isolate their state and do not require real service keys. Dependency installation can access public package registries; behavioral tests contact local fixtures.
+The four runtime guides execute real host components for configuration, transport and dispatch. Their remote MCP servers, credentials, tool schemas and returned data are synthetic. PI's checks execute its native catalog resolver and aggregator with simulated DNS/HTTPS responses, inspect renderer source contracts, and use separately built Rust hosts for configuration persistence; they do not execute the Electron UI or MCP transport. Where model decisions are needed, they are simulated; no paid model request is made. Runners isolate their state and do not require real service keys. Dependency installation can access public package registries; behavioral tests use local fixtures or simulated responses.
 
 **Production MCP requests: 0. Live model calls: 0.** No GUI, complete user conversation, actual billing, current Baizhi account catalog, production TLS, or all-platform compatibility is certified. These tests also do not imply any upstream has accepted the integration.
 
