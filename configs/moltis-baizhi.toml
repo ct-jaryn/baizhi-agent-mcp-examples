@@ -1,0 +1,9 @@
+# Merge this section into your existing moltis.toml; do not replace that file.
+# First set BAIZHI_API_KEY in Moltis Settings -> Environment Variables.
+# Keep disabled until your own key and service access are ready.
+[mcp.servers.baizhi]
+transport = "streamable-http"
+url = "https://agent-toolkit.app.baizhi.cloud/mcp"
+headers = { Authorization = "Bearer ${BAIZHI_API_KEY}" }
+enabled = false
+request_timeout_secs = 60
