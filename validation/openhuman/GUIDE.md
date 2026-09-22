@@ -37,6 +37,8 @@ The outer document above illustrates a workspace with only this entry. Merge the
 
 Credentials are accepted on write and stored separately from the displayed configuration. After saving, a read returns credential names in `envKeys` and a Boolean `authConfigured`, not the Header values. `authConfigured: true` means something is stored; it does not prove the key is valid. Do not infer operating-system keychain encryption from this display behavior.
 
+At this source snapshot, the [credential write path](https://github.com/tinyhumansai/openhuman/blob/eb4fdc0f4f4a036d8ab7c12bd52f16128e4a6b5d/crates/openhuman-core/src/mcp/registry/config_ops.rs#L265) passes values to TinyMCP's [SQLite store](https://github.com/tinyhumansai/tinymcp/blob/d3e4561562c884f64fd5c83c8992fd34742ed2b0/crates/tinymcp/src/registry/store/types.rs#L317), which stores those strings without application-level encryption. The file is `mcp_clients/mcp_clients.db` under the [configured OpenHuman workspace directory](https://github.com/tinyhumansai/openhuman/blob/eb4fdc0f4f4a036d8ab7c12bd52f16128e4a6b5d/crates/openhuman-core/src/mcp/host.rs#L110) (`Config.workspace_dir`), rather than a standalone `mcp.json` file. Protect this workspace directory and any backups as credential-bearing material; UI redaction does not protect a copied database. This observation is limited to this MCP storage path and snapshot.
+
 The **Registry** tab is browse-only in this snapshot. Its entries open the service's own page; finding an entry there is not an install or an authenticated connection.
 
 ## Try a bounded task
@@ -57,6 +59,8 @@ Disable the server first if you want to stop using the existing connection while
 - **Keep:** saving a document without a `headers` block keeps existing credentials. An empty `headers` object also does not clear them.
 - **Delete one Header:** write `"headers": {"Authorization": ""}` and save. This removes that stored Header; deleting the JSON field alone does not.
 - **Uninstall:** remove only the `baizhi` entry from the complete document and save. Keep all other entries you intend to retain. Revoke the key at the service separately if needed.
+
+Local deletion or replacement is not service-side revocation and does not establish secure erasure from database files or backups. If a key may have been exposed, revoke it through Baizhi's service controls before relying on a replacement.
 
 ## Validation scope
 
